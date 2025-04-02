@@ -2,11 +2,11 @@
 本篇使用Python Web框架Django连接和操作MySQL数据库学生信息管理系统(SMS),主要包含对学生信息增删改查功能，旨在快速入门Python Web，少走弯路。效果演示在项目实战最后一节，文章结尾有整个项目的源码地址。
 
 ## 开发环境
-- 开发工具：Pycharm 2020.1
-- 开发语言：Python 3.8.0
-- Web框架：Django 3.0.6
+- 开发工具：Pycharm 2020.1 Pycharm 2023.3.4
+- 开发语言：Python 3.8.0 → Python 3.9.18
+- Web框架：Django 3.0.6 → 4.1
 - 数据库：MySQL5.7
-- 操作系统：Windows 10
+- 操作系统：Windows 10 → Windows 11
 
 ## 项目实战
 
@@ -112,12 +112,17 @@ Terminal终端输入以下两条命令，其作用第一条生成文件记录模
 
 ``` python
 from django.contrib import admin
-from django.urls import path
-from django.conf.urls import url, include
-
+from django.urls import path,include
+# from django.conf.urls import url, include
+注释部分是因为版本较低，不符合现在的使用现状
+#urlpatterns = [
+#    path('admin/', admin.site.urls),
+#    url(r'^sims/', include('sims.urls'))
+#]
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^sims/', include('sims.urls'))
+    # re_path(r'^sims',include('sims.urls'))
+    path('sims/', include('sims.urls')),
 ]
 ```
 

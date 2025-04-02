@@ -113,12 +113,14 @@ Terminal终端输入以下两条命令，其作用第一条生成文件记录模
 ``` python
 from django.contrib import admin
 from django.urls import path,include
+
 # from django.conf.urls import url, include
-注释部分是因为版本较低，不符合现在的使用现状
 #urlpatterns = [
 #    path('admin/', admin.site.urls),
 #    url(r'^sims/', include('sims.urls'))
 #]
+注释部分是因为版本较低，不符合现在的使用现状，下方是新的使用方法
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     # re_path(r'^sims',include('sims.urls'))
@@ -132,14 +134,23 @@ urlpatterns = [
 
 ``` python
 # coding=utf-8
-from django.conf.urls import url
-from . import views
+# from django.conf.urls import url
 
+from . import views
+from django.urls import path
+
+#urlpatterns = [
+#    url(r'^$', views.index),
+#    url(r'^add/$', views.add),
+#    url(r'^edit/$', views.edit),
+#    url(r'^delete/$', views.delete)
+#]
+同上，sms与sims中的路由配置应匹配。
 urlpatterns = [
-    url(r'^$', views.index),
-    url(r'^add/$', views.add),
-    url(r'^edit/$', views.edit),
-    url(r'^delete/$', views.delete)
+    path('', views.index),
+    path('add/', views.add),
+    path('edit/', views.edit),
+    path('delete/', views.delete)
 ]
 ```
 

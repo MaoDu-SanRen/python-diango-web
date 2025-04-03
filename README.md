@@ -90,7 +90,7 @@ class Student(models.Model):
     student_no = models.CharField(max_length=32, unique=True)
     student_name = models.CharField(max_length=32)
 ```
-
+注意，模型的创建中并没有使用逗号，如果存在逗号可能会导致某个名称无法创建成功。
 
 ### 5.数据模型迁移
 
@@ -101,9 +101,13 @@ Terminal终端输入以下两条命令，其作用第一条生成文件记录模
     
     python manage.py migrate sims
 
-
 生成数据表结构如下所示
 ![](https://i.loli.net/2020/05/10/RckQl4xBdz6MjK2.png)
+
+### 5.1数据库导入数据
+
+数据库导入数据可使用DBeaver，Navicat等工具。
+数据导入时注意标题名对应或者设置好映射。
 
 ### 6.路由配置
 
